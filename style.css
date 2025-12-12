@@ -277,6 +277,44 @@ body.dark-theme .project-card {
 .project-item {
     transition: all 0.3s ease;
 }
+/* ===== СТИЛИ ДЛЯ СЧЁТЧИКОВ ПОСЕЩЕНИЙ ===== */
+.visit-counter {
+    display: inline-block;
+    background: #f1c40f;
+    color: #2c3e50;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-left: 5px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Для тёмной темы */
+body.dark-theme .visit-counter {
+    background: #f39c12;
+    color: #ecf0f1;
+}
+
+/* Автоматический счётчик */
+.auto-visit-counter {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Стили для виджета статистики */
+.visit-stats-widget {
+    transition: transform 0.3s ease;
+}
+
+.visit-stats-widget:hover {
+    transform: translateY(-5px);
+}
 /* ===== АДАПТИВНОСТЬ ===== */
 @media (max-width: 768px) {
     body {

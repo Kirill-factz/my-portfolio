@@ -37,7 +37,7 @@ function initThemeSwitcher() {
         document.body.classList.toggle('dark-theme');
         
         // Меняем иконку
-        if (document.body.classList.contains('dark-theme')) {
+        if (document.body.classList.contains('dark  -theme')) {
             themeButton.innerHTML = '☀️';
             localStorage.setItem('theme', 'dark');
             log('Тема изменена на тёмную');
@@ -50,38 +50,114 @@ function initThemeSwitcher() {
     
     log('Переключатель темы инициализирован');
 }
-// ===== СЧЁТЧИК ПОСЕЩЕНИЙ =====
+// ===== СЧЁТЧИК ПОСЕЩЕНИЙ (улучшенная версия) =====
 function initVisitCounter() {
-    // Получаем текущую страницу
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    log('Инициализация счётчика посещений...');
     
-    // Инициализируем счетчик в localStorage
-    if (!localStorage.getItem('visitCounts')) {
-        localStorage.setItem('visitCounts', JSON.stringify({}));
+    // Определяем имя страницы для ключа в localStorage
+    let pageKey = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Для главной страницы (/) используем 'index.html'
+    if (pageKey === '' || pageKey === '/') {
+        pageKey = 'index.html';
     }
     
-    // Получаем все счетчики
-    let visitCounts = JSON.parse(localStorage.getItem('visitCounts'));
+    log(`Ключ страницы: ${pageKey}`);
     
-    // Увеличиваем счетчик для текущей страницы
-    visitCounts[currentPage] = (visitCounts[currentPage] || 0) + 1;
+    // Инициализируем или получаем данные
+    let visitData = JSON.parse(localStorage.getItem('visitData')) || {
+        counts: {},
+        lastVisit: {},
+        firstVisit: {}
+    };
     
-    // Сохраняем обратно
-    localStorage.setItem('visitCounts', JSON.stringify(visitCounts));
+    // Инициализируем счётчик для этой страницы если его нет
+    if (!visitData.counts[pageKey]) {
+        visitData.counts[pageKey] = 0;
+        visitData.firstVisit[pageKey] = new Date().toISOString();
+    }
     
-    // Находим все места для вывода счетчика
+    // Увеличиваем счётчик
+    visitData.counts[pageKey]++;
+    visitData.lastVisit[pageKey] = new Date().toISOString();
+    
+    // Сохраняем обновлённые данные
+    localStorage.setItem('visitData', JSON.stringify(visitData));
+    
+    // Отображаем счётчик на странице
+    displayVisitCounter(pageKey, visitData.counts[pageKey]);
+    
+    // Также показываем общую статистику
+    showTotalStats(visitData);
+}
+
+// Функция отображения счётчика
+function displayVisitCounter(pageKey, count) {
+    // 1. Ищем стандартные элементы .visit-counter
     const counterElements = document.querySelectorAll('.visit-counter');
     
     if (counterElements.length > 0) {
         counterElements.forEach(element => {
-            element.textContent = visitCounts[currentPage];
+            element.textContent = count;
             element.style.fontWeight = 'bold';
             element.style.color = '#e74c3c';
+            element.style.marginLeft = '5px';
         });
-        
-        log(`Посещений этой страницы: ${visitCounts[currentPage]}`);
+        log(`Счётчик отображён: ${pageKey} = ${count}`);
+    } else {
+        // 2. Если элементов нет, создаём автоматически
+        createAutoCounter(pageKey, count);
     }
 }
+
+// Автоматическое создание счётчика если нет в HTML
+function createAutoCounter(pageKey, count) {
+    const footer = document.querySelector('.site-footer');
+    if (!footer) return;
+    
+    // Проверяем, нет ли уже автоматического счётчика
+    if (document.querySelector('.auto-visit-counter')) {
+        return;
+    }
+    
+    const counterDiv = document.createElement('div');
+    counterDiv.className = 'auto-visit-counter';
+    counterDiv.innerHTML = `
+        <div style="
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 4px solid #3498db;
+            font-size: 0.9rem;
+        ">
+            <strong>📊 Статистика посещений:</strong><br>
+            Эта страница: <strong style="color: #e74c3c">${count}</strong> раз
+        </div>
+    `;
+    
+    footer.insertBefore(counterDiv, footer.firstChild);
+    log(`Автоматически создан счётчик для ${pageKey}: ${count}`);
+}
+
+// Показываем общую статистику (опционально)
+function showTotalStats(visitData) {
+    const totalVisits = Object.values(visitData.counts).reduce((sum, val) => sum + val, 0);
+    const pagesCount = Object.keys(visitData.counts).length;
+    
+    // Можно добавить где-нибудь на странице, например в консоль
+    log(`Общая статистика: ${totalVisits} посещений на ${pagesCount} страницах`);
+    
+    // Или создать виджет статистики (по желанию)
+    if (pagesCount > 1 && document.querySelector('.visit-stats-widget')) {
+        document.querySelector('.visit-stats-widget').innerHTML = `
+            Всего посещений: ${totalVisits} | Страниц: ${pagesCount}
+        `;
+    }
+}
+
+// Добавьте эту функцию в initializeApp()
+// Вызов уже есть в initVisitCounter()
 // ===== ИНТЕРАКТИВНАЯ ГАЛЕРЕЯ ПРОЕКТОВ =====
 function initProjectGallery() {
     // Только на странице проектов
@@ -213,6 +289,70 @@ function initTypewriter() {
         setTimeout(typeWriter, 500);
     });
 }   
+// Функция для виджета статистики
+function initStatsWidget() {
+    const widget = document.querySelector('.visit-stats-widget');
+    if (!widget) return;
+    
+    const visitData = JSON.parse(localStorage.getItem('visitData')) || {counts: {}};
+    const totalVisits = Object.values(visitData.counts).reduce((sum, val) => sum + val, 0);
+    const pagesCount = Object.keys(visitData.counts).length;
+    
+    // Форматируем дату первого посещения
+    let firstVisitDate = 'ещё нет';
+    const firstVisits = Object.values(visitData.firstVisit || {});
+    if (firstVisits.length > 0) {
+        const earliest = new Date(Math.min(...firstVisits.filter(d => d).map(d => new Date(d))));
+        firstVisitDate = earliest.toLocaleDateString('ru-RU');
+    }
+    
+    // Самые популярные страницы
+    const popularPages = Object.entries(visitData.counts || {})
+        .sort(([,a], [,b]) => b - a)
+        .slice(0, 3)
+        .map(([page, count]) => {
+            const pageName = getPageName(page);
+            return `${pageName}: ${count}`;
+        });
+    
+    const statsHTML = `
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+            <div>
+                <div style="font-size: 2rem; font-weight: bold;">${totalVisits}</div>
+                <div>всего посещений</div>
+            </div>
+            <div>
+                <div style="font-size: 2rem; font-weight: bold;">${pagesCount}</div>
+                <div>страниц отслеживается</div>
+            </div>
+            <div>
+                <div style="font-size: 1.5rem; font-weight: bold;">${firstVisitDate}</div>
+                <div>первое посещение</div>
+            </div>
+        </div>
+        ${popularPages.length > 0 ? `
+        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2);">
+            <strong>Самые популярные страницы:</strong><br>
+            ${popularPages.join(' | ')}
+        </div>` : ''}
+    `;
+    
+    document.getElementById('stats-content').innerHTML = statsHTML;
+    log('Виджет статистики обновлён');
+}
+
+// Вспомогательная функция для красивого имени страницы
+function getPageName(pageKey) {
+    const pageNames = {
+        'index.html': 'Главная',
+        'diary.html': 'Дневник',
+        'projects.html': 'Проекты'
+    };
+    return pageNames[pageKey] || pageKey.replace('.html', '');
+}
+
+// Добавьте вызов в initializeApp():
+// initStatsWidget();
 // Запускаем когда страница полностью загружена
 document.addEventListener('DOMContentLoaded', function() {
     log('Страница загружена!');
