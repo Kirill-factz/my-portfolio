@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои проекты - Портфолио</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💼</text></svg>">
+    <style>
+        /* Дополнительные стили для страницы проектов */
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .tech-tag {
+            background: #e8f4fc;
+            color: #2980b9;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .project-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .project-link:hover {
+            background: #2980b9;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Якорь для кнопки "Наверх" -->
+    <a id="top"></a>
+    
+    <!-- Шапка сайта -->
+    <header class="site-header">
+        <h1 class="site-title">Мои проекты</h1>
+        <p class="site-subtitle">Портфолио начинающего разработчика</p>
+        <p style="margin-top: 1rem; font-size: 1.1rem;">Здесь собраны все мои учебные работы</p>
+    </header>
+
+    <!-- Навигационное меню -->
+    <nav class="main-nav">
+        <ul class="nav-list">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="diary.html">Дневник</a></li>
+            <li><a href="projects.html" class="active">Проекты</a></li>
+        </ul>
+    </nav>
+
+    <!-- Основное содержание -->
+    <main class="main-content">
+        <section>
+            <h2>🎨 Галерея проектов</h2>
+            <p>Ниже представлены проекты, которые я создал во время обучения. Каждый проект — это шаг вперёд в освоении веб-разработки.</p>
+            
+            <div class="project-gallery">
+                <!-- Проект 1 -->
+                <article class="project-item" id="project1">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
+                         alt="Код программирования" class="project-image">
+                    <div class="project-content">
+                        <h3>Персональная страница</h3>
+                        <p><strong>Дата создания:</strong> 09.12.2024</p>
+                        <p>Моя первая HTML-страница с информацией о себе, целями и мотивацией.</p>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">Адаптивный дизайн</span>
+                        </div>
+                        
+                        <a href="index.html" class="project-link">Посмотреть проект →</a>
+                    </div>
+                </article>
+
+                <!-- Проект 2 -->
+                <article class="project-item" id="project2">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w-600&q=80" 
+                         alt="Дневник и ручка" class="project-image">
+                    <div class="project-content">
+                        <h3>Дневник обучения</h3>
+                        <p><strong>Дата создания:</strong> 09.12.2024</p>
+                        <p>Страница-дневник с целями, прогрессом и планами на обучение. Постоянно обновляется.</p>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">Flexbox</span>
+                            <span class="tech-tag">Адаптивность</span>
+                        </div>
+                        
+                        <a href="diary.html" class="project-link">Посмотреть проект →</a>
+                    </div>
+                </article>
+
+                <!-- Проект 3 -->
+                <article class="project-item" id="project3">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
+                         alt="Ноутбук с кодом" class="project-image">
+                    <div class="project-content">
+                        <h3>Сайт-портфолио</h3>
+                        <p><strong>Дата создания:</strong> 09.12.2024</p>
+                        <p>Полноценный сайт из трёх страниц с единым дизайном, навигацией и адаптивной вёрсткой.</p>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">Grid Layout</span>
+                            <span class="tech-tag">CSS Flexbox</span>
+                            <span class="tech-tag">Семантическая вёрстка</span>
+                        </div>
+                        
+                        <a href="projects.html" class="project-link">Вы сейчас здесь</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section style="margin-top: 3rem;">
+            <h2>🚀 Будущие проекты</h2>
+            <p>Вот что я планирую создать в ближайшее время:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Проект</th>
+                        <th>Срок</th>
+                        <th>Технологии</th>
+                        <th>Статус</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Интерактивный To-Do List</td>
+                        <td>1 неделя</td>
+                        <td>HTML, CSS, JavaScript</td>
+                        <td>🟡 В планах</td>
+                    </tr>
+                    <tr>
+                        <td>Калькулятор на JavaScript</td>
+                        <td>3 дня</td>
+                        <td>JavaScript, DOM API</td>
+                        <td>🟡 В планах</td>
+                    </tr>
+                    <tr>
+                        <td>Веб-приложение "Погода"</td>
+                        <td>2 недели</td>
+                        <td>API, Async JavaScript</td>
+                        <td>🟡 В планах</td>
+                    </tr>
+                    <tr>
+                        <td>Блог на React</td>
+                        <td>1 месяц</td>
+                        <td>React, Node.js, MongoDB</td>
+                        <td>🟡 В планах</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section style="margin-top: 3rem; background: #f8f9fa; padding: 2rem; border-radius: 10px;">
+            <h2>📈 Мой прогресс</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+                <div style="flex: 1; min-width: 200px; background: white; padding: 1rem; border-radius: 8px;">
+                    <h3 style="color: #2c3e50;">Освоено за 2 дня:</h3>
+                    <ul>
+                        <li>Структура HTML</li>
+                        <li>Базовые теги и атрибуты</li>
+                        <li>CSS селекторы и свойства</li>
+                        <li>Flexbox и Grid</li>
+                        <li>Адаптивный дизайн</li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 200px; background: white; padding: 1rem; border-radius: 8px;">
+                    <h3 style="color: #2c3e50;">В процессе:</h3>
+                    <ul>
+                        <li>JavaScript основы</li>
+                        <li>Работа с DOM</li>
+                        <li>Git и GitHub</li>
+                        <li>Инструменты разработчика</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="site-footer">
+        <p>© 2024 Кирилл. Портфолио учебных проектов.</p>
+        <p>
+            <a href="index.html">Главная</a> | 
+            <a href="diary.html">Дневник обучения</a> | 
+            <a href="#top">Наверх</a>
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.8rem; color: #95a5a6;">
+            Все проекты созданы с нуля в процессе обучения веб-разработке.
+        </p>
+    </footer>
+     <!-- ПОДКЛЮЧЕНИЕ JAVASCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+/* ===== ОБЩИЕ СТИЛИ ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== ШАПКА САЙТА ===== */
+.site-header {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.site-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.site-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* ===== НАВИГАЦИОННОЕ МЕНЮ ===== */
+.main-nav {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    justify-content: center;    
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-list a:hover {
+    background-color: #3498db;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+.main-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+/* ===== ЗАГОЛОВКИ ===== */
+h1 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #3498db;
+}
+
+h2 {
+    color: #3498db;
+    margin: 1.5rem 0 1rem 0;
+}
+
+h3 {
+    color: #e74c3c;
+    margin: 1.2rem 0 0.8rem 0;
+}
+
+/* ===== СПИСКИ ===== */
+ul, ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* ===== ССЫЛКИ ===== */
+a {
+    color: #2980b9;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #e74c3c;
+    text-decoration: underline;
+}
+
+/* ===== ТАБЛИЦЫ ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* ===== КАРТОЧКИ ПРОЕКТОВ ===== */
+.project-card {
+    background: #f8f9fa;
+    border-left: 4px solid #3498db;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.project-card h3 {
+    margin-top: 0;
+}
+
+/* ===== ИЗОБРАЖЕНИЯ ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1rem 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* ===== ПОДВАЛ ===== */
+.site-footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-top: 2px solid #eee;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+/* ===== АКТИВНАЯ ССЫЛКА В МЕНЮ ===== */
+.nav-list a.active {
+    background-color: #2c3e50;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.nav-list a.active:hover {
+    background-color: #2c3e50;
+    transform: none;
+}
+/* ===== ТЁМНАЯ ТЕМА ===== */
+body.dark-theme {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+body.dark-theme .main-content {
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+}
+
+body.dark-theme .site-header {
+    background: linear-gradient(135deg, #0d1b2a, #1b3a4b);
+}
+
+body.dark-theme .project-item {
+    background-color: #2d2d2d;
+    color: #f0f0f0;
+}
+
+body.dark-theme table {
+    background-color: #2d2d2d;
+}
+
+body.dark-theme th {
+    background-color: #1b3a4b;
+}
+
+body.dark-theme .nav-list a {
+    color: #f0f0f0;
+}
+
+body.dark-theme .nav-list a:hover {
+    background-color: #1b3a4b;
+}
+
+body.dark-theme .project-card {
+    background-color: #252525;
+}
+
+/* Кнопка переключения темы */
+.theme-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.theme-switcher:hover {
+    transform: scale(1.1);
+    background: #2980b9;
+}
+/* ===== ФИЛЬТРЫ ПРОЕКТОВ ===== */
+.filter-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background: #ecf0f1;
+    border: 2px solid #bdc3c7;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: #d5dbdb;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: #3498db;
+    color: white;
+    border-color: #2980b9;
+}
+
+/* Анимация для фильтрации проектов */
+.project-item {
+    transition: all 0.3s ease;
+}
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .site-title {
+        font-size: 2rem;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    .nav-list a {
+        display: block;
+        width: 200px;
+        text-align: center;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
+}
