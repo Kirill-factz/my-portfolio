@@ -1,114 +1,176 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="ru" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кирилл - Будущий Fullstack-разработчик</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Портфолио Кирилла — кандидата на первую позицию Technical Support или Junior QA. Учебные кейсы, навыки и проекты.">
+  <meta name="color-scheme" content="dark light">
+  <title>Кирилл — Technical Support / Junior QA</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Шапка сайта -->
-    <header class="site-header">
-        <h1 class="site-title">Кирилл</h1>
-        <p class="site-subtitle">Будущий Fullstack-разработчик</p>
-        <p style="margin-top: 1rem; font-size: 1.1rem;">Начало пути: 09.12.2024</p>
-    </header>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
 
-    <!-- Навигационное меню -->
-    <nav class="main-nav">
-        <ul class="nav-list">
-            <li><a href="index.html" class="active">Главная</a></li>
-            <li><a href="diary.html">Дневник</a></li>
-            <li><a href="projects.html">Проекты</a></li>
-        </ul>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Кирилл — на главную">
+      <span class="brand-mark" aria-hidden="true">K</span>
+      <span>Кирилл</span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#skills">Навыки</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#background">Обо мне</a>
+      <a href="#contact">Контакты</a>
     </nav>
+    <button class="theme-toggle" type="button" aria-label="Включить светлую тему" title="Сменить тему">
+      <span aria-hidden="true">☀</span>
+    </button>
+  </header>
 
-    <!-- Основное содержание -->
-    <main class="main-content">
-        <section>
-            <h2>👋 Привет! Я начинающий разработчик</h2>
-            <p>Всего несколько дней назад я начал свой путь в веб-разработке, и уже создал свой первый сайт-портфолио!</p>
-            <p>Моя цель — стать fullstack-разработчиком и создавать современные веб-приложения.</p>
-        </section>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Ищу первую работу в IT</p>
+        <h1 id="hero-title">Technical Support<br><span>/ Junior QA</span></h1>
+        <p class="hero-lead">Разбираюсь в проблеме по шагам, умею работать с кодом и понятно описывать результат. Ищу команду, где смогу помогать пользователям и расти в тестировании.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#cases">Посмотреть кейсы</a>
+          <a class="button button-secondary" href="https://github.com/Kirill-factz" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+      </div>
 
-        <section>
-            <h2>🎯 Мои цели на 3 месяца</h2>
-            <div class="project-card">
-                <h3>Фронтенд (Frontend)</h3>
-                <ul>
-                    <li>Изучить HTML, CSS, JavaScript на уверенном уровне</li>
-                    <li>Освоить React или Vue.js</li>
-                    <li>Создать 5+ учебных проектов</li>
-                </ul>
-            </div>
-            
-            <div class="project-card">
-                <h3>Бэкенд (Backend)</h3>
-                <ul>
-                    <li>Изучить Node.js и Express</li>
-                    <li>Научиться работать с базами данных (MongoDB/PostgreSQL)</li>
-                    <li>Создать собственное REST API</li>
-                </ul>
-            </div>
-            
-            <div class="project-card">
-                <h3>Инструменты (Tools)</h3>
-                <ul>
-                    <li>Освоить Git и GitHub</li>
-                    <li>Научиться деплоить приложения</li>
-                    <li>Познакомиться с Docker</li>
-                </ul>
-            </div>
-        </section>
+      <aside class="candidate-card" aria-label="Краткая информация о кандидате">
+        <div class="card-head">
+          <span>candidate.profile</span>
+          <span class="card-state">OPEN</span>
+        </div>
+        <dl class="profile-list">
+          <div><dt>Фокус</dt><dd>Support / Manual QA</dd></div>
+          <div><dt>Образование</dt><dd>Колледж, программирование</dd></div>
+          <div><dt>Опыт</dt><dd>Учебные и личные проекты</dd></div>
+          <div><dt>Формат</dt><dd>Стажировка / Junior</dd></div>
+        </dl>
+        <p class="card-note">Готов разбираться в продукте, воспроизводить ошибки и вести понятную коммуникацию.</p>
+      </aside>
+    </section>
 
-        <section>
-            <h2>💪 Почему я выбрал этот путь</h2>
-            <p>Меня привлекает возможность создавать что-то своими руками, решать сложные задачи и постоянно учиться новому.</p>
-            <p>Веб-разработка сочетает в себе творчество и логику, что идеально подходит мне.</p>
-            
-            <div style="background: #e8f4fc; padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem;">
-                <h3>🚀 Ближайшие шаги</h3>
-                <ol>
-                    <li>Закрепить основы HTML/CSS (эту неделю)</li>
-                    <li>Начать изучение JavaScript (следующая неделя)</li>
-                    <li>Создать интерактивный проект (через 2 недели)</li>
-                </ol>
-            </div>
-        </section>
-       <section style="margin-top: 2rem;">
-         <div class="visit-stats-widget" style="
-           background: linear-gradient(135deg, #3498db, #2c3e50);
-           color: white;
-           padding: 1.5rem;
-           border-radius: 10px;
-           text-align: center;
-           box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-         ">
-            <h3 style="margin-top: 0;">📈 Статистика сайта</h3>
-            <div id="stats-content">
-            Загрузка статистики...
-            </div>
-         </div>
-       </section>
-    </main>
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="section-heading">
+        <p class="section-index">01 / НАВЫКИ</p>
+        <h2 id="skills-title">Чем буду полезен команде</h2>
+      </div>
 
-    <!-- Подвал сайта -->
-    <footer class="site-footer">
-        <p>© 2024 Кирилл. Персональный сайт-портфолио.</p>
-        <p>
-            <a href="diary.html">Дневник обучения</a> | 
-            <a href="projects.html">Мои проекты</a> | 
-            <a href="#top">Наверх</a>
-        </p>
-        <p style="margin-top: 1rem; font-size: 0.8rem; color: #95a5a6;">
-            Сайт создан с нуля за 2 дня обучения. Обновляется ежедневно.
-        </p>
-        <p style="margin-top: 1rem; font-size: 0.9rem; color: #7f8c8d;">
-        👁️ Посещений этой страницы: <span class="visit-counter">0</span>
-        </p>
-    </footer>
-     <!-- ПОДКЛЮЧЕНИЕ JAVASCRIPT -->
-    <script src="script.js"></script>
+      <div class="role-grid">
+        <article class="role-card">
+          <div class="role-icon" aria-hidden="true">S</div>
+          <h3>Technical Support</h3>
+          <ul class="check-list">
+            <li>Уточнить симптомы и ожидаемый результат</li>
+            <li>Воспроизвести проблему по шагам</li>
+            <li>Проверить браузерную консоль и окружение</li>
+            <li>Объяснить решение понятным языком</li>
+            <li>Передать разработчику собранные данные</li>
+          </ul>
+        </article>
+
+        <article class="role-card">
+          <div class="role-icon" aria-hidden="true">Q</div>
+          <h3>Junior QA</h3>
+          <ul class="check-list">
+            <li>Составить чек-лист и тест-кейсы</li>
+            <li>Провести функциональную проверку</li>
+            <li>Проверить адаптивность и доступность</li>
+            <li>Оформить воспроизводимый баг-репорт</li>
+            <li>Провести повторную проверку после исправления</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="toolbox" aria-label="Технические навыки">
+        <p>Техническая база</p>
+        <ul>
+          <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Python · учебный уровень</li>
+          <li>Kotlin</li><li>Jetpack Compose</li><li>Базы данных</li><li>Git / GitHub</li>
+          <li>Browser DevTools · базовый</li><li>Test cases</li><li>Checklists</li><li>Bug reports</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="cases" aria-labelledby="cases-title">
+      <div class="section-heading split-heading">
+        <div>
+          <p class="section-index">02 / ПРАКТИКА</p>
+          <h2 id="cases-title">Кейсы вместо общих слов</h2>
+        </div>
+        <p>Материалы показывают ход мысли, оформление результата и техническую базу. Это учебная практика, а не коммерческий опыт.</p>
+      </div>
+
+      <div class="case-grid">
+        <article class="case-card case-featured">
+          <div class="case-meta"><span>QA CASE</span><span>Выполнено</span></div>
+          <h3>Аудит старой версии портфолио</h3>
+          <p>Проверил навигацию, переключение темы, счётчик статистики, ссылки и адаптивность. Зафиксировал дефекты и критерии повторной проверки.</p>
+          <ul class="result-list">
+            <li><strong>5</strong><span>зафиксированных проблем</span></li>
+            <li><strong>3</strong><span>уровня приоритета</span></li>
+            <li><strong>1</strong><span>регрессионный чек-лист</span></li>
+          </ul>
+          <a class="text-link" href="docs/qa-case-study.md">Открыть QA-отчёт <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="case-card">
+          <div class="case-meta"><span>SUPPORT CASE</span><span>Выполнено</span></div>
+          <h3>«Не включается тёмная тема»</h3>
+          <p>Разобрал обращение как специалист поддержки: уточнение, воспроизведение, локализация причины, временное решение и эскалация.</p>
+          <a class="text-link" href="docs/support-case-study.md">Открыть разбор обращения <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="case-card">
+          <div class="case-meta"><span>TEST DESIGN</span><span>Выполнено</span></div>
+          <h3>Набор проверок портфолио</h3>
+          <p>Позитивные, негативные и кросс-девайс проверки для навигации, темы, внешних ссылок и основных пользовательских сценариев.</p>
+          <a class="text-link" href="docs/test-cases.md">Открыть тест-кейсы <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="background" aria-labelledby="background-title">
+      <div class="section-heading">
+        <p class="section-index">03 / БЭКГРАУНД</p>
+        <h2 id="background-title">Техническая база уже есть</h2>
+      </div>
+
+      <div class="background-grid">
+        <div class="about-copy">
+          <p>Учусь в колледже по специальности, связанной с программированием, и совмещаю учёбу с работой. Хочу войти в IT через Technical Support или Junior QA — роли, где важны техническое мышление, внимательность и нормальная коммуникация.</p>
+          <p>Мне нравится работать за ноутбуком, разбираться в том, как устроен продукт, и общаться с людьми. В незнакомой задаче сначала собираю факты, затем проверяю гипотезы и фиксирую результат.</p>
+        </div>
+
+        <div class="project-history">
+          <p class="history-title">Учебные и личные проекты</p>
+          <ul>
+            <li><span>02</span><p><strong>Мобильных приложения</strong><small>Kotlin, Jetpack Compose</small></p></li>
+            <li><span>01</span><p><strong>Интернет-магазин</strong><small>Веб-разработка и работа с данными</small></p></li>
+            <li><span>01</span><p><strong>Игра</strong><small>Самостоятельный учебный проект</small></p></li>
+            <li><span>DB</span><p><strong>Проекты с базами данных</strong><small>Учебная практика</small></p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <p class="section-index">04 / КОНТАКТ</p>
+      <h2 id="contact-title">Готов обсудить первую задачу</h2>
+      <p>Рассматриваю стажировку или junior-позицию в Technical Support и Manual QA.</p>
+      <a class="button button-light" href="https://github.com/Kirill-factz" target="_blank" rel="noreferrer">Открыть профиль GitHub ↗</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Кирилл · Technical Support / Junior QA</p>
+    <p>Обновлено в 2026 году</p>
+  </footer>
 </body>
 </html>
